@@ -1,0 +1,41 @@
+{
+  "AppBar": {
+    "menu1": "Servizi",
+    "menu2": "Contatti",
+    "title": "Studio Turco Leo"
+  },
+  "Contacts": {
+    "button1": "Vai su WeChat",
+    "button2": "Invia",
+    "label1": "Nominatico",
+    "label2": "Email",
+    "label3": "Testo",
+    "title": "I nostri contatti",
+    "subtitle": "Oppure contattaci direttamente con questo form"
+  },
+  "DoubleCards": {
+    "title": "I nostri vantaggi",
+    "title1": "Traduttore e interprete a vostra disposizione",
+    "title2": "Assistenza alla clientela presso il proprio domicilio"
+  },
+  "Map": {
+    "title": "Puoi trovarci qui"
+  },
+  "Services": {
+    "text1": "Ottimizziamo la tua contabilità aziendale per garantire una gestione finanziaria efficiente e trasparente, permettendoti di concentrarti sul cuore del tuo business",
+    "text2": "Gestiamo in modo preciso e puntuale la remunerazione dei tuoi dipendenti, garantendo il rispetto delle normative fiscali e previdenziali vigenti",
+    "text3": "Affidati alla nostra consulenza per guidarti attraverso il complesso processo imprenditoriale, dall'avvio di un'attività alla sua crescita sostenibile nel mercato",
+    "text4": "Ti supportiamo passo dopo passo nella costituzione e nell'organizzazione della tua società, assicurandoci che sia strutturata in modo efficiente e conforme alle normative",
+    "text5": "Semplifichiamo la procedura per il rilascio del permesso di soggiorno per te e i tuoi dipendenti stranieri presso un ufficio autorizzato, garantendo il rispetto delle leggi sull'immigrazione e agevolando il processo burocratico",
+    "title": "I nostri servizi",
+    "title1": "Contabilità",
+    "title2": "Stipendio del lavoratore",
+    "title3": "Processo imprenditoriale",
+    "title4": "Costruire una società",
+    "title5": "Procedura di rilascio del permesso di soggiorno"
+  },
+  "validation": {
+    "error1": "Campo obbligatorio",
+    "error2": "E-mail non valida"
+  }
+}
