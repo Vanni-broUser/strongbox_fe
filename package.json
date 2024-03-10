@@ -1,5 +1,5 @@
 {
-  "name": "vuejs-with-vite",
+  "name": "strongbox",
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
