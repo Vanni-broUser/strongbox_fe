@@ -1,7 +1,7 @@
 import { createI18n } from 'vue-i18n';
 
-import itLocale from '@/locales/it.json';
-import zhLocale from '@/locales/zh.json';
+import itLocale from '@/assets/locales/it.json';
+import zhLocale from '@/assets/locales/zh.json';
 
 const i18n = createI18n({
   locale: 'zh',
