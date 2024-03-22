@@ -1,16 +1,16 @@
+import http from '@/utils/http';
 import { defineStore } from 'pinia';
+
 
 export const useNotesStore = defineStore('notes', {
   state: () => ({
-    notes: [
-      {
-        name: 'Prova',
-        datetime: '20/07/1997'
-      },
-      {
-        name: 'Prova2',
-        datetime: '20/07/1997'
-      }
-    ]
-  })
+    notes: []
+  }),
+  actions: {
+    initNotes() {
+      http.getRequest('get-notes', {}, function (data) {
+        this.notes = data;
+      });
+    }
+  }
 });

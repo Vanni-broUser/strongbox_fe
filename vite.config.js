@@ -2,8 +2,12 @@ import vue from '@vitejs/plugin-vue';
 import ViteFonts from 'unplugin-fonts/vite';
 import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify';
 
+import dotenv from "dotenv";
 import { defineConfig } from 'vite';
 import { fileURLToPath, URL } from 'node:url';
+
+
+dotenv.config();
 
 
 export default defineConfig({
