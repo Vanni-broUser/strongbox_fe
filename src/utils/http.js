@@ -1,9 +1,9 @@
 const hostname = import.meta.env.VITE_HOSTNAME;
 
 
-const postRequest = (endpoint, body, func) => {
+const postRequest = (endpoint, body, func, method = 'POST') => {
   fetch(`${hostname}${endpoint}`, {
-    method: 'POST',
+    method: method,
     headers: {
       'Content-Type': 'application/json',
     },
@@ -20,12 +20,12 @@ const postRequest = (endpoint, body, func) => {
 };
 
 
-const getRequest = (endpoint, params, func) => {
+const getRequest = (endpoint, params, func, method = 'GET') => {
   const url = new URL(`${hostname}${endpoint}`);
   Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
 
   fetch(url, {
-    method: 'GET',
+    method: method,
     headers: {
       'Content-Type': 'application/json',
     }

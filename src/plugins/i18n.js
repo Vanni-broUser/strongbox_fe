@@ -4,7 +4,7 @@ import itLocale from '@/assets/locales/it.json';
 import zhLocale from '@/assets/locales/zh.json';
 
 const i18n = createI18n({
-  locale: 'zh',
+  locale: 'it',
   messages: {
     it: itLocale,
     zh: zhLocale
