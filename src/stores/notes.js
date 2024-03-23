@@ -25,7 +25,8 @@ export const useNotesStore = defineStore('notes', {
     selectedWeeklyDate: new Date(),
     dailyNotes: {},
     weeklyNotes: {},
-    importantNotes: []
+    importantNotes: [],
+    completedNotes: []
   }),
   actions: {
     initNotes(type) {
@@ -42,6 +43,15 @@ export const useNotesStore = defineStore('notes', {
       }
       else if (type == 'important')
         http.getRequest('notes', {main: true}, this.updateImportantsNotes)
+      else if (type == 'completed')
+        http.getRequest('notes', {completed: true}, this.updateCompletedNotes)
+    },
+    updateCompletedNotes(notes) {
+      notes.forEach(note => {
+        note.updated_at = new Date(note.updated_at).toLocaleDateString('en-GB');
+        note.datetime = new Date(note.datetime).toLocaleDateString('en-GB');
+      });
+      this.completedNotes = notes;
     },
     updateDailyNotes(notes) {
       let groupedNotes = {};

@@ -2,6 +2,7 @@
   <Today v-if="view == 1" />
   <Week v-if="view == 2" />
   <Tag v-if="view == 3" />
+  <Completed v-if="view == 4" />
   <v-bottom-navigation>
     <v-btn value="favorites" @click="view = 1">
       <v-icon icon="mdi-star-box" />
@@ -15,6 +16,10 @@
       <v-icon icon="mdi-tag" />
       <span>Tag</span>
     </v-btn>
+    <v-btn value="nearby" @click="view = 4">
+      <v-icon icon="mdi-check-circle" />
+      <span>Completate</span>
+    </v-btn>
   </v-bottom-navigation>
 </template>
 
@@ -23,6 +28,7 @@
   import Tag from '@/components/notes/Tag';
   import Week from '@/components/notes/Week';
   import Today from '@/components/notes/Today';
+  import Completed from '@/components/notes/Completed';
 
   const view = ref(1);
 </script>

@@ -9,7 +9,8 @@
       <v-container>
         <v-card elevation="20" height="600">
           <v-card-title>
-            Visualizzazione giornaliera<br>{{ today.toLocaleDateString('en-GB') }}
+            Visualizzazione giornaliera<br>
+            {{ today.toLocaleDateString('en-GB') }} {{ datetime.displayWeekDayName(today) }}
           </v-card-title>
           <v-card-text class="list-body">
             <v-card title="Attività giornaliera" elevation="5" style="margin-bottom: 10px;" v-if="dailyNotes['Attività giornaliera']">

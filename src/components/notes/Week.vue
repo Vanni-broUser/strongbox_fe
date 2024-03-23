@@ -10,7 +10,7 @@
         <v-card elevation="20" height="600">
           <v-card-title>
             Visualizzazione settimanale<br>
-            Inizio: {{ start.toLocaleDateString('en-GB') }}
+            {{ start.toLocaleDateString('en-GB') }} {{ datetime.displayWeekDayName(start) }}
           </v-card-title>
           <v-card-text class="list-body">
             <v-expansion-panels multiple>
@@ -43,7 +43,6 @@
   const notesStore = useNotesStore();
   const { initNotes, updateSelectedWeeklyDate } = notesStore;
 
-  
   initNotes('weekly');
   const { weeklyNotes, selectedWeeklyDate } = storeToRefs(notesStore);
   const start = ref(selectedWeeklyDate);
