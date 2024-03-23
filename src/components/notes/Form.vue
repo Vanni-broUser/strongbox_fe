@@ -137,12 +137,14 @@
         params.main = true;
       if (data.value != undefined && hours != undefined && minutes != undefined)
         params.datetime = formatDateTime();
+      console.log(params)
       http.postRequest(`instances/Note${editedNote.value ? '/' + editedNote.value.id : ''}`, {
         params: params
       }, function (data) {
         resetData();
         initNotes('daily');
         initNotes('weekly');
+        initNotes('important');
       }, editedNote.value ? 'PATCH' : 'POST');
     }
   };
