@@ -8,6 +8,7 @@
             {{ data ? 'Seleziona un orario' : 'Seleziona prima una data' }}
           </v-card-title>
           <v-card-text v-if="data">
+            <v-btn block text="Pulisci" variant="outlined" @click="resetHours();isActive.value = false" /><br>
             <v-item-group selected-class="bg-primary" class="column-container" v-model="hours">
               <v-row class="column">
                 <v-col row v-for="hour in HOURS_OPTIONS">
@@ -116,15 +117,21 @@
     title.value = note.title;
     content.value = note.content;
     important.value = note.main;
-    data.value = new Date(Date.parse(note.datetime));
-    hours.value = data.value.getHours();
-    minutes.value = data.value.getMinutes();
+    data.value = note.datetime;
+    if (!note.daily && data.value) {
+      hours.value = data.value.getUTCHours();
+      minutes.value = data.value.getMinutes();
+    } else {
+      hours.value = undefined;
+      minutes.value = undefined;
+    }
   };
 
   watch(editedNote, function (newValue) {
-    createFlag.value = true;
-    if (newValue)
+    if (newValue) {
+      createFlag.value = true;
       setNote(newValue);
+    }
   });
 
   const saveNote = () => {
@@ -135,13 +142,17 @@
       };
       if (important.value)
         params.main = true;
-      if (data.value != undefined && hours != undefined && minutes != undefined)
+      if (data.value != undefined) {
         params.datetime = formatDateTime();
-      console.log(params)
+        if (hours.value == undefined)
+          params.daily = true;
+        else
+          params.daily = false;
+      }
       http.postRequest(`instances/Note${editedNote.value ? '/' + editedNote.value.id : ''}`, {
         params: params
       }, function (data) {
-        resetData();
+        resetData(true);
         initNotes('daily');
         initNotes('weekly');
         initNotes('important');
@@ -167,7 +178,14 @@
     const year = data.value.getFullYear();
     const month = String(data.value.getMonth() + 1).padStart(2, '0');
     const day = String(data.value.getDate()).padStart(2, '0');
-    return `${year}-${month}-${day} ${hours.value}:${minutes.value}`;
+    const hour = hours.value == undefined ? HOURS_OPTIONS[0] : HOURS_OPTIONS[hours.value];
+    const minute = minutes.value == undefined ? MINUTES_OPTIONS[0] : MINUTES_OPTIONS[minutes.value];
+    return `${year}-${month}-${day} ${hour}:${minute}`;
+  };
+
+  const resetHours = () => {
+    hours.value = undefined;
+    minutes.value = undefined;
   };
 </script>
 
