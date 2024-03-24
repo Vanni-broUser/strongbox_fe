@@ -7,11 +7,31 @@ const routes = [
     children: [
       {
         path: "",
-        name: "Note",
-        component: () => import("@/views/Note.vue"),
+        name: "Login",
+        component: () => import("@/views/Login.vue")
       },
-    ],
-  },
+      {
+        path: "/password/:token",
+        name: "Password",
+        component: () => import("@/views/Password.vue")
+      },
+      {
+        path: "/notes/:user_id",
+        name: "Note",
+        component: () => import("@/views/Notes.vue")
+      },
+      {
+        path: "/documents/:user_id",
+        name: "Documenti",
+        component: () => import("@/views/Documents.vue")
+      },
+      {
+        path: "/finances/:user_id",
+        name: "Finances",
+        component: () => import("@/views/Finances.vue")
+      }
+    ]
+  }
 ];
 
 const router = createRouter({
@@ -28,7 +48,7 @@ const router = createRouter({
     } else {
       return { left: 0, top: 0 };
     }
-  },
+  }
 });
 
 export default router;

@@ -1,4 +1,5 @@
 <template>
+  <v-container><h1>Note</h1></v-container>
   <Importants />
   <Form />
   <BottomNavigation />

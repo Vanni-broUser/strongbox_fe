@@ -2,7 +2,7 @@
   <v-container>
     <v-card elevation="20" title="Importanti" height="200" style="overflow-y: auto;">
       <v-list>
-        <NoteListItem v-for="note in importantNotes" :note="note" :title="displayTitle(note)" :subtitle="note.content" />
+        <NoteListItem v-for="note in importantNotes" :note="note" :title="note.title" :subtitle="displaySubtitle(note)" />
       </v-list>
     </v-card>
   </v-container>
@@ -19,7 +19,7 @@
 
   initNotes('important');
 
-  const displayTitle = (note) => {
-    return `${note.title}${note.datetime ? ' - ' + note.datetime.toLocaleDateString('en-GB') : ''}`;
+  const displaySubtitle = (note) => {
+    return `${note.datetime ? note.datetime.toLocaleDateString('en-GB'): ''}${note.content ? (note.datetime ? ' - ' : '') + note.content : ''}`
   };
 </script>
