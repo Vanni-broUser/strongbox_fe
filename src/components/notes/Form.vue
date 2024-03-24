@@ -71,6 +71,11 @@
               </v-row>
               <v-row>
                 <v-col cols="12" md="12">
+                  <v-select variant="outlined" clearable chips label="Tag" :items="tags.map(tag => tag.name)" multiple />
+                </v-col>
+              </v-row>
+              <v-row>
+                <v-col cols="12" md="12">
                   <v-checkbox label="Importante" style="height: 30px;" v-model="important" />
                 </v-col>
               </v-row>
@@ -91,7 +96,9 @@
   import http from '@/utils/http';
   import { ref, watch  } from 'vue';
   import { storeToRefs } from 'pinia';
+  import { useRoute } from 'vue-router';
   import validation from '@/utils/validation';
+  import { useTagsStore } from '@/stores/tags';
   import { useNotesStore } from '@/stores/notes';
 
   const HOURS_OPTIONS = ['00', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14',
@@ -103,12 +110,19 @@
 
   const title = ref('');
   const content = ref('');
-  const createFlag = ref(false);
+  const route = useRoute();
   const data = ref(undefined);
   const hours = ref(undefined);
   const important = ref(false);
+  const createFlag = ref(false);
   const minutes = ref(undefined);
   const dateTimeFlag = ref(true);
+
+  const tagsStore = useTagsStore();
+  const { initTags } = tagsStore;
+  initTags(route.params.userId);
+  const { tags } = storeToRefs(tagsStore);
+
   const notesStore = useNotesStore();
   const { initNotes, updateEditedNote } = notesStore;
   const { editedNote } = storeToRefs(notesStore);

@@ -16,17 +16,17 @@ const routes = [
         component: () => import("@/views/Password.vue")
       },
       {
-        path: "/notes/:user_id",
+        path: "/notes/:userId",
         name: "Note",
         component: () => import("@/views/Notes.vue")
       },
       {
-        path: "/documents/:user_id",
+        path: "/documents/:userId",
         name: "Documenti",
         component: () => import("@/views/Documents.vue")
       },
       {
-        path: "/finances/:user_id",
+        path: "/finances/:userId",
         name: "Finances",
         component: () => import("@/views/Finances.vue")
       }
