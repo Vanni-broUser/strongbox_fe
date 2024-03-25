@@ -6,6 +6,7 @@
     <v-divider />
     <v-list density="compact" nav>
       <v-list-item prepend-icon="mdi-calendar-text-outline" title="Note" @click="goTo('notes')" />
+      <v-list-item prepend-icon="mdi-tag" title="Tag" @click="goTo('tags')" />
       <v-list-item prepend-icon="mdi-text-box-multiple" title="Documenti" value="shared" @click="goTo('documents')" />
       <v-list-item prepend-icon="mdi-finance" title="Finanza personale" value="starred" @click="goTo('finances')" />
     </v-list>
@@ -22,6 +23,6 @@
   const drawerEnabled = ref(cookie.getCookie('strongbox_session_token') != null);
 
   const goTo = (page) => {
-    router.push(`/${page}/${route.params.user_id}`);
+    router.push(`/${page}/${route.params.userId}`);
   };
 </script>

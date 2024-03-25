@@ -21,6 +21,11 @@ const routes = [
         component: () => import("@/views/Notes.vue")
       },
       {
+        path: "/tags/:userId",
+        name: "Tag",
+        component: () => import("@/views/Tags.vue")
+      },
+      {
         path: "/documents/:userId",
         name: "Documenti",
         component: () => import("@/views/Documents.vue")

@@ -4,7 +4,8 @@ import { defineStore } from 'pinia';
 
 export const useTagsStore = defineStore('tags', {
   state: () => ({
-    tags: []
+    tags: [],
+    editedTag: undefined
   }),
   actions: {
     initTags(userId) {
@@ -14,6 +15,9 @@ export const useTagsStore = defineStore('tags', {
     },
     updateTags(tags) {
       this.tags = tags;
+    },
+    updateEditedTag(tag) {
+      this.editedTag = tag;
     }
   }
 });
