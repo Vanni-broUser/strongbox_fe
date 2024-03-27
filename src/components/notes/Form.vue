@@ -152,11 +152,10 @@
     if (!validation.validateInput(title.value, validation.requiredRules)) {
       let params = {
         title: title.value,
+        main: important.value,
         content: content.value,
         user_id: route.params.userId
       };
-      if (important.value)
-        params.main = true;
       if (data.value != undefined) {
         params.datetime = formatDateTime();
         if (hours.value == undefined)
